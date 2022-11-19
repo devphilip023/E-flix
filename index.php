@@ -121,4 +121,8 @@ include "admin/db_connection.php";
 
   <!-- Bootstrap core JavaScript -->
   <script src="blog-template/vendor/jquery/jquery.min.js"></script>
-  <script src="blog-template/vendor/bootstrap
+  <script src="blog-template/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+
+</body>
+
+</html>
