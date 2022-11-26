@@ -24,23 +24,23 @@ include "admin/db_connection.php";
         </h1>
         <?php
 
-  $servername = "us-cdbr-east-06.cleardb.net";
-  $username = "b657ea733237ef";
-  $password = "05f24793";
-  $databasename = "heroku_7d62d584a1618e6";
+        $servername = "us-cdbr-east-06.cleardb.net";
+        $username = "b657ea733237ef";
+        $password = "05f24793";
+        $databasename = "heroku_7d62d584a1618e6";
 
-  $conn = new mysqli(
-    $servername,
-    $username,
-    $password,
-    $databasename
+        $conn = new mysqli(
+          $servername,
+          $username,
+          $password,
+          $databasename
 
-    //$cfg["Servers"][$i]["host"] = "us-cdbr-east-06.cleardb.net"; //provide hostname
-    //$cfg["Servers"][$i]["user"] = "b657ea733237ef"; //user name for your remote server
-    //$cfg["Servers"][$i]["password"] = "05f24793"; //password
-    //$cfg["Servers"][$i]["auth_type"] = "config"; // keep it as config
+          //$cfg["Servers"][$i]["host"] = "us-cdbr-east-06.cleardb.net"; //provide hostname
+          //$cfg["Servers"][$i]["user"] = "b657ea733237ef"; //user name for your remote server
+          //$cfg["Servers"][$i]["password"] = "05f24793"; //password
+          //$cfg["Servers"][$i]["auth_type"] = "config"; // keep it as config
 
-  );
+        );
 
 
 
@@ -69,7 +69,8 @@ include "admin/db_connection.php";
         ?>
           <!-- Blog Post -->
           <div class="card mb-4">
-            <!----<?php // echo $view_post_image; ?>-->
+            <!----<?php // echo $view_post_image; 
+                  ?>-->
             <iframe width="560" height="315" src="https://www.youtube.com/embed/mnLqbHMJ7_I" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
             <div class="card-body">
               <h2 class="card-title"><?php echo $view_post_title; ?></h2>
@@ -82,7 +83,7 @@ include "admin/db_connection.php";
             <?php
             $sql_select_users_article = "SELECT * FROM users WHERE id={$view_post_autor}";
             $result_sql_select_users_article = $conn->query($sql_select_users_article);
-         
+
             while ($rowusers_article = $result_sql_select_users_article->fetch_assoc()) {
               $view_users_id = $rowusers_article['id'];
               $view_users_name = $rowusers_article['name'];
