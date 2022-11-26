@@ -8,7 +8,6 @@ include "admin/db_connection.php";
 
 <body>
 
-
   <!-- Navigation -->
 
 
@@ -30,17 +29,10 @@ include "admin/db_connection.php";
         } else {
           $page = 1;
         }
-        $dbconnection =
-        new mysqli(
-          $servername,
-          $user,
-          $password,
-          $database
-        );
         $start = $no_posts_per_page * $page - $no_posts_per_page;
         $sql_select_post = "SELECT * FROM posts WHERE post_status = 1 ORDER BY id desc LIMIT {$start} ,{$no_posts_per_page} ";
-        $result_sql_select_post = $dbconnection->query($sql_select_post);
-        while ($rowpost = $result_sql_select_post->fetch_assoc()) {
+        $result_sql_select_post = mysqli_query ($dbconnection, $sql_select_post);
+        while ($rowpost = mysqli_fetch_assoc($result_sql_select_post)) {
           $view_post_id = $rowpost['id'];
           $view_post_category = $rowpost['post_category'];
           $view_post_title = $rowpost['post_title'];
