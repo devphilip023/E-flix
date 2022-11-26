@@ -41,15 +41,15 @@
                 switch ($group_options) {
                   case '1':
                     $sql_group_publish = "UPDATE posts SET post_status= '{$group_options}' WHERE id={$checked_Box_Post_Id}";
-                     $result_sql_group_publish= mysqli_query($dbconnection, $sql_group_publish);
+                     $result_sql_group_publish= $conn->query( $sql_group_publish);
                     break;
                   case '0':
                     $sql_group_unpublish = "UPDATE posts SET post_status= '{$group_options}' WHERE id={$checked_Box_Post_Id}";
-                     $result_sql_group_unpublish= mysqli_query($dbconnection, $sql_group_unpublish);
+                     $result_sql_group_unpublish= $conn->query( $sql_group_unpublish);
                     break;
                   case 'delete':
                   $sql_group_delete = "DELETE FROM posts WHERE id ={$checked_Box_Post_Id}";
-                  $result_sql_group_delete = mysqli_query($dbconnection, $sql_group_delete);
+                  $result_sql_group_delete = $conn->query( $sql_group_delete);
                   header("Location: post_admin.php");
                     # code...
                     break;
@@ -131,7 +131,7 @@
             <?php 
                 $counter= 0;
                 $sql_select_post = "SELECT * FROM posts ORDER BY id desc";
-                $result_sql_select_post = mysqli_query($dbconnection, $sql_select_post);
+                $result_sql_select_post = $conn->query( $sql_select_post);
                 while ($rowpost = mysqli_fetch_assoc($result_sql_select_post))
                 {
                   $view_post_id = $rowpost['id'];
@@ -158,7 +158,7 @@
               <td style="text-align: left;"><a href="../post.php?postid=<?= $view_post_id; ?>" target="_blank" style="color:black"><?php echo $view_post_title ?></a></td>
               <?php 
                 $sql_select_users = "SELECT * FROM users WHERE id={$view_post_autor}";
-                $result_sql_select_users = mysqli_query($dbconnection, $sql_select_users);
+                $result_sql_select_users = $conn->query( $sql_select_users);
                 while ($rowusers = mysqli_fetch_assoc($result_sql_select_users))
                 {
                   $view_users_id = $rowusers['id'];
@@ -179,7 +179,7 @@
               <td style="text-align: center;"><?php echo $view_users_name ?></td>
               <?php 
                     $sql_select_category_by_id = "SELECT * FROM categories WHERE id ={$view_post_category}";
-                    $result_sql_select_category_by_id = mysqli_query($dbconnection, $sql_select_category_by_id);
+                    $result_sql_select_category_by_id = $conn->query( $sql_select_category_by_id);
                      while ($rowcategory_by_id = mysqli_fetch_assoc($result_sql_select_category_by_id))
                       {
                         $view_category_id_by_id = $rowcategory_by_id['id'];
@@ -208,7 +208,7 @@
                 <span class="label label-success">
                   <?php 
                 $sql_select_comment = "SELECT * FROM comments WHERE postid={$view_post_id}";
-                $result_sql_select_comment = mysqli_query($dbconnection, $sql_select_comment);
+                $result_sql_select_comment = $conn->query( $sql_select_comment);
                 $count_cooments_for_post=0;
                 while ($rowcomment = mysqli_fetch_assoc($result_sql_select_comment))
                 {

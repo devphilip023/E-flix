@@ -41,15 +41,15 @@
                 switch ($group_options) {
                   case '1':
                     $sql_group_publish = "UPDATE comments SET comm_status= '{$group_options}' WHERE id={$checked_Box_Comment_Id}";
-                     $result_sql_group_publish= mysqli_query($dbconnection, $sql_group_publish);
+                     $result_sql_group_publish= $conn->query( $sql_group_publish);
                     break;
                   case '0':
                     $sql_group_unpublish = "UPDATE comments SET comm_status= '{$group_options}' WHERE id={$checked_Box_Comment_Id}";
-                     $result_sql_group_unpublish= mysqli_query($dbconnection, $sql_group_unpublish);
+                     $result_sql_group_unpublish= $conn->query( $sql_group_unpublish);
                     break;
                   case 'delete':
                   $sql_group_delete = "DELETE FROM comments WHERE id ={$checked_Box_Comment_Id}";
-                  $result_sql_group_delete = mysqli_query($dbconnection, $sql_group_delete);
+                  $result_sql_group_delete = $conn->query( $sql_group_delete);
                   header("Location: comment_admin.php");
                     # code...
                     break;
@@ -126,7 +126,7 @@
             </tr>
             <?php 
                 $sql_select_comment = "SELECT * FROM comments ORDER BY comm_status asc";
-                $result_sql_select_comment = mysqli_query($dbconnection, $sql_select_comment);
+                $result_sql_select_comment = $conn->query( $sql_select_comment);
                 while ($rowcomment = mysqli_fetch_assoc($result_sql_select_comment))
                 {
                   $view_comm_id = $rowcomment['id'];
@@ -146,7 +146,7 @@
               <td style="text-align: center;"><?php echo $view_comm_email; ?></td>
               <?php
                   $sql_select_post = "SELECT * FROM posts WHERE id = {$view_comm_postid}";
-                  $result_sql_select_post = mysqli_query($dbconnection, $sql_select_post);
+                  $result_sql_select_post = $conn->query( $sql_select_post);
                   while ($rowpost = mysqli_fetch_assoc($result_sql_select_post))
                   {
                     $view_post_id = $rowpost['id'];

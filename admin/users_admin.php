@@ -41,15 +41,15 @@
                 switch ($group_options) {
                   case '1':
                     $sql_group_publish = "UPDATE users SET status= '{$group_options}' WHERE id={$checked_Box_User_Id}";
-                     $result_sql_group_publish= mysqli_query($dbconnection, $sql_group_publish);
+                     $result_sql_group_publish= $conn->query( $sql_group_publish);
                     break;
                   case '0':
                     $sql_group_unpublish = "UPDATE users SET status= '{$group_options}' WHERE id={$checked_Box_User_Id}";
-                     $result_sql_group_unpublish= mysqli_query($dbconnection, $sql_group_unpublish);
+                     $result_sql_group_unpublish= $conn->query( $sql_group_unpublish);
                     break;
                   case 'delete':
                   $sql_group_delete = "DELETE FROM users WHERE id ={$checked_Box_User_Id}";
-                  $result_sql_group_delete = mysqli_query($dbconnection, $sql_group_delete);
+                  $result_sql_group_delete = $conn->query( $sql_group_delete);
                   header("Location: users_admin.php");
                     # code...
                     break;
@@ -128,7 +128,7 @@
             </tr>
             <?php 
                 $sql_select_users = "SELECT * FROM users ORDER BY id desc";
-                $result_sql_select_users = mysqli_query($dbconnection, $sql_select_users);
+                $result_sql_select_users = $conn->query( $sql_select_users);
                 while ($rowusers = mysqli_fetch_assoc($result_sql_select_users))
                 {
                   $view_users_id = $rowusers['id'];
