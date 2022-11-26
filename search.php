@@ -51,11 +51,10 @@
                 
                  }
                   
-              }
-
-                $result_sql_select_post = mysqli_query($dbconnection, $sql_select_post);
+              } 
+                $result_sql_select_post = $conn->query($sql_select_post);
                 $search_counter = 0;
-                while ($rowpost = mysqli_fetch_assoc($result_sql_select_post))
+                while ($rowpost = $result_sql_select_post->fetch_assoc())
                 {
                   $view_post_id = $rowpost['id'];
                   $view_post_category = $rowpost['post_category'];
@@ -83,8 +82,8 @@
           </div>
           <?php 
                 $sql_select_users_article = "SELECT * FROM users WHERE id={$view_post_autor}";
-                $result_sql_select_users_article = mysqli_query($dbconnection, $sql_select_users_article);
-                while ($rowusers_article = mysqli_fetch_assoc($result_sql_select_users_article))
+                $result_sql_select_users_article =  $conn->query($sql_select_users_article);
+                while ($rowusers_article = $result_sql_select_users_article->fetch_assoc())
                 {
                   $view_users_id = $rowusers_article['id'];
                   $view_users_name = $rowusers_article['name'];
@@ -93,7 +92,7 @@
              ?>
           <div class="card-footer text-muted">
             <img src="admin/images/users/<?php echo $view_users_image; ?>" class="zoom3" alt="User Image" width="50" align="left" hspace="5">
-            By <a href="#"><?php echo $view_users_name; ?></a> <br>Web developer <a href="#">VirtuaPHP</a>
+            By <a href="#"><?php echo $view_users_name; ?></a> <br>admin <a href="#">E-flix</a>
             | <?php echo $view_post_date; ?>
           </div>
         </div>
@@ -105,7 +104,7 @@
           <li class="page-item">
             <?php 
                   $select_post_query = "SELECT * FROM posts WHERE post_status = 1 AND post_title LIKE '%$search_text%' OR post_text LIKE '%$search_text%'";
-                  $result_select_post_query = mysqli_query ($dbconnection, $select_post_query);
+                  $result_select_post_query =  $conn->query ($select_post_query);
                   $sum_posts = mysqli_num_rows($result_select_post_query) ;
                   
                   $allpages = ceil($sum_posts / $no_posts_per_page);
