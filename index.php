@@ -23,6 +23,27 @@ include "admin/db_connection.php";
           <small>Top video content for you</small>
         </h1>
         <?php
+
+  $servername = "us-cdbr-east-06.cleardb.net";
+  $username = "b657ea733237ef";
+  $password = "05f24793";
+  $databasename = "heroku_7d62d584a1618e6";
+
+  $conn = new mysqli(
+    $servername,
+    $username,
+    $password,
+    $databasename
+
+    //$cfg["Servers"][$i]["host"] = "us-cdbr-east-06.cleardb.net"; //provide hostname
+    //$cfg["Servers"][$i]["user"] = "b657ea733237ef"; //user name for your remote server
+    //$cfg["Servers"][$i]["password"] = "05f24793"; //password
+    //$cfg["Servers"][$i]["auth_type"] = "config"; // keep it as config
+
+  );
+
+
+
         $no_posts_per_page = 5;
         if (isset($_GET['page'])) {
           $page = $_GET['page'];
@@ -31,8 +52,8 @@ include "admin/db_connection.php";
         }
         $start = $no_posts_per_page * $page - $no_posts_per_page;
         $sql_select_post = "SELECT * FROM posts WHERE post_status = 1 ORDER BY id desc LIMIT {$start} ,{$no_posts_per_page} ";
-        $result_sql_select_post = mysqli_query($dbconnection, $sql_select_post);
-        while ($rowpost = mysqli_fetch_assoc($result_sql_select_post)) {
+        $result_sql_select_post = $conn->query($sql_select_post);
+        while ($rowpost = $result_sql_select_post->fetch_assoc()) {
           $view_post_id = $rowpost['id'];
           $view_post_category = $rowpost['post_category'];
           $view_post_title = $rowpost['post_title'];
