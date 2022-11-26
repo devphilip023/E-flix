@@ -13,7 +13,8 @@
            </a>
          </li>
          <?php
-          $sql_select_category = mysqli_query ($dbconnection, "SELECT * FROM categories ORDER BY cat_priority asc");
+
+          $sql_select_category = "SELECT * FROM categories ORDER BY cat_priority asc";
   
           $result_sql_select_category = mysqli_query($dbconnection, $sql_select_category);
           
