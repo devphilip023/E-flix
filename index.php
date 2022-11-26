@@ -103,7 +103,7 @@ include "admin/db_connection.php";
           <li class="page-item">
             <?php
             $select_post_query = "SELECT * FROM posts WHERE post_status = 1";
-            $result_select_post_query = mysqli_query($dbconnection, $select_post_query);
+            $result_select_post_query = $conn->query($select_post_query);
             $sum_posts = mysqli_num_rows($result_select_post_query);
 
             $allpages = ceil($sum_posts / $no_posts_per_page);
