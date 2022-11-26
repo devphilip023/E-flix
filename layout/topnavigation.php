@@ -13,10 +13,10 @@
            </a>
          </li>
          <?php
-          $servername = "localhost";
-          $username = "root";
-          $password = "";
-          $databasename = "virtualblog";
+          $servername = "us-cdbr-east-06.cleardb.net";
+          $username = "b657ea733237ef";
+          $password = "05f24793";
+          $databasename = "heroku_7d62d584a1618e6";
   
           $conn = new mysqli(
             $servername,
