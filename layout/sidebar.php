@@ -179,8 +179,8 @@
           <?php 
                 $counter_popular= 0;
                 $sql_select_post_popular = "SELECT * FROM posts WHERE post_status = 1 ORDER BY post_visit_counter DESC LIMIT 0,5";
-                $result_sql_select_post_popular = mysqli_query($dbconnection, $sql_select_post_popular);
-                while ($rowpost_popular = mysqli_fetch_assoc($result_sql_select_post_popular))
+                $result_sql_select_post_popular = $conn->query($sql_select_post_popular);
+                while ($rowpost_popular = $result_sql_select_post_popular->fetch_assoc())
                 {
                   $view_post_id_popular = $rowpost_popular['id'];
                   $view_post_category_popular = $rowpost_popular['post_category'];
