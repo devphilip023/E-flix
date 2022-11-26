@@ -1,6 +1,4 @@
- <?php
-  include "admin/db_connection.php";
-  ?>
+
  <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
    <div class="container">
      <a class="navbar-brand" href="index.php">E-Flix</a>
@@ -18,7 +16,7 @@
           $sql_select_category = "SELECT * FROM categories ORDER BY cat_priority asc";
           $result_sql_select_category = $sql->execute($dbconnection, $sql_select_category);
           
-          $counter_category_post = 0;
+          $counter_category_post == 0;
           while ($rowcategory = mysqli_fetch_assoc($result_sql_select_category)) {
 
             $view_category_id = $rowcategory['id'];
