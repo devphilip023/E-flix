@@ -81,8 +81,9 @@ include "admin/db_connection.php";
             </div>
             <?php
             $sql_select_users_article = "SELECT * FROM users WHERE id={$view_post_autor}";
-            $result_sql_select_users_article = mysqli_query($dbconnection, $sql_select_users_article);
-            while ($rowusers_article = mysqli_fetch_assoc($result_sql_select_users_article)) {
+            $result_sql_select_users_article = $conn->query($sql_select_users_article);
+         
+            while ($rowusers_article = $result_sql_select_users_article->fetch_assoc()) {
               $view_users_id = $rowusers_article['id'];
               $view_users_name = $rowusers_article['name'];
               $view_users_image = $rowusers_article['image'];
