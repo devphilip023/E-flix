@@ -4,8 +4,10 @@ if (isset($_GET['postid']))
 	$id_post_for_comment = $_GET['postid'];
 
     $sql_select_comment_for_post = "SELECT * FROM comments WHERE comm_status= 1 AND postid = $id_post_for_comment";
-    $result_sql_select_comment_for_post = mysqli_query($dbconnection, $sql_select_comment_for_post);
-                while ($rowcomment_for_post = mysqli_fetch_assoc($result_sql_select_comment_for_post))
+  $result_sql_select_users_article = $conn->query($sql_select_users_article);
+  while ($rowusers_article = $result_sql_select_users_article->fetch_assoc())
+    $result_sql_select_comment_for_post = $conn->query($sql_select_comment_for_post);
+                while ($rowcomment_for_post = $result_sql_select_comment_for_post->fetch_assoc())
                 {
                   $view_comm_id = $rowcomment_for_post['id'];
                   $view_comm_postid = $rowcomment_for_post['postid'];
@@ -22,9 +24,9 @@ if (isset($_GET['postid']))
               if (is_numeric($view_comm_autor))
                   {
                     $sql_select_users_for_comm = "SELECT * FROM users WHERE id ={$view_comm_autor}";
-                    $result_sql_select_users_for_comm = mysqli_query($dbconnection, $sql_select_users_for_comm);
+                    $result_sql_select_users_for_comm = $conn->query($sql_select_users_for_comm);
                     $counter_comm_user_log = 0;
-                    while ($rowusers_for_comm = mysqli_fetch_assoc($result_sql_select_users_for_comm))
+                    while ($rowusers_for_comm = $result_sql_select_users_for_comm->fetch_assoc())
                     {
                       $counter_comm_user_log++;
                       $view_users_id_for_comm = $rowusers_for_comm['id'];

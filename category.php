@@ -34,8 +34,8 @@
 
           $selected_category_page= $_GET['catid'];
           $sql_select_category_page = "SELECT * FROM categories WHERE id = {$selected_category_page}";
-          $result_sql_select_category_page = mysqli_query($dbconnection, $sql_select_category_page);
-                while ($rowcategorypage = mysqli_fetch_assoc($result_sql_select_category_page))
+          $result_sql_select_category_page = $conn->query($sql_select_category_page);
+                while ($rowcategorypage = $result_sql_select_category_page->fetch_assoc())
                 {
                   $view_category_id = $rowcategorypage['id'];
                   $view_cat_title = $rowcategorypage['cat_title'];
@@ -49,9 +49,9 @@
         </h1>
         <?php 
                 $sql_select_post = "SELECT * FROM posts WHERE post_status = 1 AND post_category = {$selected_category_page} ORDER BY id desc LIMIT {$start} ,{$no_posts_per_page}";
-                $result_sql_select_post = mysqli_query($dbconnection, $sql_select_post);
+                $result_sql_select_post = $conn->query( $sql_select_post);
                 $post_counter_for_category = 0;
-                while ($rowpost = mysqli_fetch_assoc($result_sql_select_post))
+                while ($rowpost = $result_sql_select_post->fetch_assoc())
                 {
                   $post_counter_for_category++;
                   $view_post_id = $rowpost['id'];
@@ -80,8 +80,8 @@
           </div>
           <?php 
                 $sql_select_users_article = "SELECT * FROM users WHERE id={$view_post_autor}";
-                $result_sql_select_users_article = mysqli_query($dbconnection, $sql_select_users_article);
-                while ($rowusers_article = mysqli_fetch_assoc($result_sql_select_users_article))
+                $result_sql_select_users_article = $conn->query( $sql_select_users_article);
+                while ($rowusers_article = $result_sql_select_users_article->fetch_assoc())
                 {
                   $view_users_id = $rowusers_article['id'];
                   $view_users_name = $rowusers_article['name'];
@@ -108,7 +108,7 @@
           <li class="page-item">
             <?php 
                   $select_post_query = "SELECT * FROM posts WHERE post_status = 1 AND post_category = {$selected_category_page}";
-                  $result_select_post_query = mysqli_query ($dbconnection, $select_post_query);
+                  $result_select_post_query = $conn->query($select_post_query);
                   $sum_posts = mysqli_num_rows($result_select_post_query) ;
                   
                   $allpages = ceil($sum_posts / $no_posts_per_page);

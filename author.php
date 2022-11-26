@@ -23,8 +23,9 @@
         {
           $selected_auth_id= $_GET['auth'];
           $sql_select_auth_posts = "SELECT * FROM users WHERE id = {$selected_auth_id}";
-          $result_sql_select_auth_post = mysqli_query($dbconnection, $sql_select_auth_posts);
-                while ($row_auth_post = mysqli_fetch_assoc($result_sql_select_auth_post))
+          $result_sql_select_auth_post = $conn->query( $sql_select_auth_posts);
+                while ($row_auth_post = $result_sql_select_auth_post->fetch_assoc())
+
                 {
                   $view_user_id = $row_auth_post['id'];
                   $view_user_name = $row_auth_post['name'];
@@ -46,10 +47,9 @@
         </h1>
         <?php 
                 $sql_select_post_auth = "SELECT * FROM posts WHERE post_status = 1 AND post_autor = {$selected_auth_id} ORDER BY id desc";
-                $result_sql_select_post_auth = mysqli_query($dbconnection, $sql_select_post_auth);
+                $result_sql_select_post_auth = $conn->query( $sql_select_post_auth);
                 $post_counter_for_category = 0;
-
-                while ($rowpost = mysqli_fetch_assoc($result_sql_select_post_auth))
+                while ($rowpost = $result_sql_select_post_auth->fetch_assoc())
                 {
                   $post_counter_for_category++;
                   $view_post_id = $rowpost['id'];

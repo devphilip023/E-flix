@@ -10,14 +10,14 @@
 		$password= $_POST['password'];
 
 		    $sql_select_users_login = "SELECT * FROM users WHERE username = '{$username}'";
-        $result_sql_select_users_login = mysqli_query($dbconnection, $sql_select_users_login);
+        $result_sql_select_users_login = $conn->query( $sql_select_users_login);
 
         if (!$result_sql_select_users_login)
             {
               die("Error description:" . mysqli_error());
             }
 
-        while ($row_user_login = mysqli_fetch_assoc( $result_sql_select_users_login))
+        while ($row_user_login = $result_sql_select_users_login->fetch_assoc())
               {
                $id_user_login = $row_user_login['id'];
                $user_login_name = $row_user_login['name'];
