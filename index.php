@@ -8,8 +8,6 @@ include "admin/db_connection.php";
 
 <body>
 
-  <!-- Navigation -->
-  <?php include "layout/topnavigation.php"; ?>
 
   <!-- Page Content -->
   <div class="container">
