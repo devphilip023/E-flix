@@ -41,7 +41,7 @@
             $view_cat_title = $rowcategory['cat_title'];
 
             $sql_select_post_for_category = "SELECT * FROM posts WHERE post_category = {$view_category_id}";
-            $result_sql_select_post_for_category = mysqli_query($dbconnection, $sql_select_post_for_category);
+            $result_sql_select_post_for_category = $conn->query($sql_select_post_for_category);
             while ($rowpost_for_category = mysqli_fetch_assoc($result_sql_select_post_for_category)) {
 
               $counter_category_post++;
