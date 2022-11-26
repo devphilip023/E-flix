@@ -9,8 +9,8 @@ ob_start();
         $edit_post_id_visit=$_GET['postid'];
 
         $sql_select_post_visit = "SELECT * FROM posts WHERE id={$edit_post_id_visit}";
-                $result_sql_select_post_visit = mysqli_query($dbconnection, $sql_select_post_visit);
-                while ($rowpost_visit = mysqli_fetch_assoc($result_sql_select_post_visit))
+                $result_sql_select_post_visit = $conn->query($sql_select_post_visit);
+                while ($rowpost_visit = $result_sql_select_post_visit->fetch_assoc())
                 {
                   
                   $view_post_visit_counter_all_visits = $rowpost_visit['post_visit_counter'];
@@ -19,7 +19,7 @@ ob_start();
 
 
         $sql_edit_post_visit = "UPDATE posts SET post_visit_counter='$view_post_visit_counter_all_visits'+1 WHERE id={$edit_post_id_visit}";
-        $result_sql_edit_post_visit= mysqli_query($dbconnection, $sql_edit_post_visit);
+        $result_sql_edit_post_visit= $conn->query($sql_edit_post_visit);
         if (!$result_sql_edit_post_visit)
                 {
                    die("Error description:" . mysqli_error());
@@ -51,8 +51,8 @@ ob_start();
         $selected_post_page= $_GET['postid'];
 
                 $sql_select_post_page = "SELECT * FROM posts WHERE id={$selected_post_page}";
-                $result_sql_select_post_page = mysqli_query($dbconnection, $sql_select_post_page);
-                while ($rowpostpage = mysqli_fetch_assoc($result_sql_select_post_page))
+                $result_sql_select_post_page = $conn->query( $sql_select_post_page);
+                while ($rowpostpage = $result_sql_select_post_page->fetch_assoc())
                 {
                   $view_post_id = $rowpostpage['id'];
                   $view_post_category = $rowpostpage['post_category'];
@@ -84,8 +84,8 @@ ob_start();
         <!-- Author -->
         <?php 
                 $sql_select_users_article = "SELECT * FROM users WHERE id={$view_post_autor}";
-                $result_sql_select_users_article = mysqli_query($dbconnection, $sql_select_users_article);
-                while ($rowusers_article = mysqli_fetch_assoc($result_sql_select_users_article))
+                $result_sql_select_users_article = $conn->query($sql_select_users_article);
+                while ($rowusers_article = $result_sql_select_users_article->fetch_assoc())
                 {
                   $view_users_id = $rowusers_article['id'];
                   $view_users_name = $rowusers_article['name'];
@@ -94,7 +94,7 @@ ob_start();
              ?>
         <p class="lead">
          <img src="admin/images/users/<?php echo $view_users_image; ?>" class="zoom3" alt="User Image" width="50" align="left" hspace="5">
-            By <a href="#"><?php echo $view_users_name; ?></a> <br>Web developer <a href="#">VirtuaPHP</a>
+            By <a href="#"><?php echo $view_users_name; ?></a> <br>admin <a href="#">E-Flix</a>
           
         </p>
 
