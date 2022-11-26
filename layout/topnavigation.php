@@ -16,7 +16,8 @@
          </li>
          <?php
           $sql_select_category = "SELECT * FROM categories ORDER BY cat_priority asc";
-          $result_sql_select_category = mysqli_query($dbconnection, $sql_select_category);
+          $result_sql_select_category = $sql->execute($dbconnection, $sql_select_category);
+          
           $counter_category_post = 0;
           while ($rowcategory = mysqli_fetch_assoc($result_sql_select_category)) {
 
