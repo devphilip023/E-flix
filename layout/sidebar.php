@@ -142,10 +142,9 @@
                 <ul class="list-unstyled mb-0">
                   <?php 
                       $sql_select_category_wiget1 = "SELECT * FROM categories";
-                      $result_sql_select_category_wiget1 = mysqli_query($dbconnection, $sql_select_category_wiget1);
-
+                      $result_sql_select_category_wiget1 = $conn->query($sql_select_category_wiget1);
                        $category_counter1= 0;
-                        while ($rowcategory_wiget1= mysqli_fetch_assoc( $result_sql_select_category_wiget1)) 
+                        while ($rowcategory_wiget1= $result_sql_select_category_wiget1->fetch_assoc()) 
                        {
                         $category_counter1++;
                         $id_category_wiget1 = $rowcategory_wiget1['id'];
