@@ -127,7 +127,7 @@ include "db_connection.php";
                 $counter = 0;
                 $sql_select_category = "SELECT * FROM categories ORDER BY id desc";
                 $result_sql_select_category = $conn->query( $sql_select_category);
-                while ($rowcategory = mysqli_fetch_assoc($result_sql_select_category)) {
+                while ($rowcategory = $result_sql_select_category->fetch_assoc()) {
                   $view_category_id = $rowcategory['id'];
                   $view_cat_title = $rowcategory['cat_title'];
                   $view_cat_desc = $rowcategory['cat_desc'];
@@ -150,7 +150,8 @@ include "db_connection.php";
                       $posts_category_counter = 0;
                       $sql_select_category_posts = "SELECT * FROM posts WHERE post_category={$view_category_id}";
                       $result_sql_selectcategory_posts = $conn->query( $sql_select_category_posts);
-                      while ($rowcategorypost = mysqli_fetch_assoc($result_sql_selectcategory_posts)) {
+        
+                      while ($rowcategorypost = $result_sql_selectcategory_posts->fetch_assoc()) {
                         $posts_category_counter++;
                       }
                       ?>

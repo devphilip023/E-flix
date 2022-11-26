@@ -33,7 +33,7 @@
                 $count_categories= 0;
                 $sql_select_categories = "SELECT * FROM categories";
                 $result_sql_select_categories = $conn->query( $sql_select_categories);
-                while ($rowcategories = mysqli_fetch_assoc($result_sql_select_categories))
+                while ($rowcategories = $result_sql_select_categories->fetch_assoc())
                 {
                   $count_categories++;
                 } 
@@ -57,7 +57,7 @@
                 $counter_posts= 0;
                 $sql_select_posts = "SELECT * FROM posts ORDER BY id desc";
                 $result_sql_select_posts = $conn->query( $sql_select_posts);
-                while ($rowposts = mysqli_fetch_assoc($result_sql_select_posts))
+                while ($rowposts = $result_sql_select_posts->fetch_assoc())
                 {
                   $counter_posts++;
                 }
@@ -81,7 +81,8 @@
                 $sql_select_users_all = "SELECT * FROM users ORDER BY id desc";
                 $result_sql_select_users_all = $conn->query( $sql_select_users_all);
                 $count_all_users= 0;
-                while ($rowusers_all = mysqli_fetch_assoc($result_sql_select_users_all))
+                while ($rowusers_all = $result_sql_select_users_all->fetch_assoc())
+                
                 {
                   $count_all_users++;
                 }
@@ -105,7 +106,7 @@
                 $sql_select_comment_all= "SELECT * FROM comments ORDER BY comm_status asc";
                 $result_sql_select_comment_all = $conn->query( $sql_select_comment_all);
                 $count_all_comments=0;
-                while ($rowcomment = mysqli_fetch_assoc($result_sql_select_comment_all))
+                while ($rowcomment =$result_sql_select_comment_all->fetch_assoc())
                 {
                   $count_all_comments++;
                 }

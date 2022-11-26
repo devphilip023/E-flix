@@ -127,7 +127,7 @@
             <?php 
                 $sql_select_comment = "SELECT * FROM comments ORDER BY comm_status asc";
                 $result_sql_select_comment = $conn->query( $sql_select_comment);
-                while ($rowcomment = mysqli_fetch_assoc($result_sql_select_comment))
+                while ($rowcomment = $result_sql_select_comment->fetch_assoc())
                 {
                   $view_comm_id = $rowcomment['id'];
                   $view_comm_postid = $rowcomment['postid'];
@@ -147,7 +147,7 @@
               <?php
                   $sql_select_post = "SELECT * FROM posts WHERE id = {$view_comm_postid}";
                   $result_sql_select_post = $conn->query( $sql_select_post);
-                  while ($rowpost = mysqli_fetch_assoc($result_sql_select_post))
+                  while ($rowpost = $result_sql_select_post->fetch_assoc())
                   {
                     $view_post_id = $rowpost['id'];
                     $view_post_title = $rowpost['post_title'];

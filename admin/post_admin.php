@@ -132,7 +132,7 @@
                 $counter= 0;
                 $sql_select_post = "SELECT * FROM posts ORDER BY id desc";
                 $result_sql_select_post = $conn->query( $sql_select_post);
-                while ($rowpost = mysqli_fetch_assoc($result_sql_select_post))
+                while ($rowpost = $result_sql_select_post->fetch_assoc())
                 {
                   $view_post_id = $rowpost['id'];
                   $view_post_category = $rowpost['post_category'];
@@ -159,7 +159,8 @@
               <?php 
                 $sql_select_users = "SELECT * FROM users WHERE id={$view_post_autor}";
                 $result_sql_select_users = $conn->query( $sql_select_users);
-                while ($rowusers = mysqli_fetch_assoc($result_sql_select_users))
+                while ($rowusers= $result_sql_select_users->fetch_assoc())
+               
                 {
                   $view_users_id = $rowusers['id'];
                   $view_users_name = $rowusers['name'];
@@ -180,7 +181,7 @@
               <?php 
                     $sql_select_category_by_id = "SELECT * FROM categories WHERE id ={$view_post_category}";
                     $result_sql_select_category_by_id = $conn->query( $sql_select_category_by_id);
-                     while ($rowcategory_by_id = mysqli_fetch_assoc($result_sql_select_category_by_id))
+                     while ($rowcategory_by_id = $result_sql_select_category_by_id->fetch_assoc())
                       {
                         $view_category_id_by_id = $rowcategory_by_id['id'];
                         $view_cat_title_by_id = $rowcategory_by_id['cat_title'];
@@ -210,7 +211,7 @@
                 $sql_select_comment = "SELECT * FROM comments WHERE postid={$view_post_id}";
                 $result_sql_select_comment = $conn->query( $sql_select_comment);
                 $count_cooments_for_post=0;
-                while ($rowcomment = mysqli_fetch_assoc($result_sql_select_comment))
+                while ($rowcomment = $result_sql_select_comment->fetch_assoc())
                 {
                   $count_cooments_for_post++;
                 }

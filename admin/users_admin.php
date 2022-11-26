@@ -129,7 +129,7 @@
             <?php 
                 $sql_select_users = "SELECT * FROM users ORDER BY id desc";
                 $result_sql_select_users = $conn->query( $sql_select_users);
-                while ($rowusers = mysqli_fetch_assoc($result_sql_select_users))
+                while ($rowusers =$result_sql_select_users->fetch_assoc())
                 {
                   $view_users_id = $rowusers['id'];
                   $view_users_name = $rowusers['name'];
