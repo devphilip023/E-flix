@@ -13,11 +13,27 @@
            </a>
          </li>
          <?php
+          $servername = "localhost";
+          $username = "root";
+          $password = "";
+          $databasename = "virtualblog";
+  
+          $conn = new mysqli(
+            $servername,
+            $username,
+            $password,
+            $databasename
 
+            //$cfg["Servers"][$i]["host"] = "us-cdbr-east-06.cleardb.net"; //provide hostname
+            //$cfg["Servers"][$i]["user"] = "b657ea733237ef"; //user name for your remote server
+            //$cfg["Servers"][$i]["password"] = "05f24793"; //password
+            //$cfg["Servers"][$i]["auth_type"] = "config"; // keep it as config
+
+          );
           $sql_select_category = "SELECT * FROM categories ORDER BY cat_priority asc";
   
-          $result_sql_select_category = mysqli_query($dbconnection, $sql_select_category);
-          
+          $result_sql_select_category = $conn->query($sql_select_category);
+       
           $counter_category_post = 0;
           while ($rowcategory = mysqli_fetch_assoc($result_sql_select_category)) {
 
