@@ -96,9 +96,9 @@ CREATE TABLE `categories` (
 
 INSERT INTO `categories` (`id`, `cat_title`, `cat_desc`, `cat_slug`, `cat_date`, `cat_edit_date`, `cat_status`, `cat_priority`) VALUES
 (59, 'Hardware', 'This is category for hardware', 'hardware', '', '', '1', '2'),
-(60, 'Software', 'This is category for software', 'software', '', '16/04/2019', '1', '1'),
-(61, 'Games', 'This is category for games', 'games', '16/04/2019', '16/04/2019', '1', '1'),
-(62, 'Mobile', 'This is category for mobile', 'mobile', '17/05/2019', '17/05/2019', '1', '1');
+(60, 'Software', 'This is category for software', 'software', '', '16/04/2022', '1', '1'),
+(61, 'Games', 'This is category for games', 'games', '16/04/2019', '16/04/2022', '1', '1'),
+(62, 'Mobile', 'This is category for mobile', 'mobile', '17/05/2019', '17/05/2022', '1', '1');
 
 -- --------------------------------------------------------
 
