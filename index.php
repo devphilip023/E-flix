@@ -90,8 +90,6 @@ include "admin/db_connection.php";
             <iframe  width="100%" height="400" src="https://www.youtube.com/embed/mnLqbHMJ7_I" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
             <div class="card-body">
               <h2 class="card-title"><?php echo $view_post_title; ?></h2>
-              <p class="card-text">
-              </p>
               <a href="post.php?postid=<?= $view_post_id; ?>" class="btn btn-primary">Read More &rarr;</a>
             </div>
             <?php
