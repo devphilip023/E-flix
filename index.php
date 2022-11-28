@@ -7,6 +7,22 @@ include "admin/db_connection.php";
 <?php include "layout/head.php"; ?>
 
 <body>
+  <style>
+    .video-responsive {
+      overflow: hidden;
+      padding-bottom: 56.25%;
+      position: relative;
+      height: 0;
+    }
+
+    .video-responsive iframe {
+      left: 0;
+      top: 0;
+      height: 100%;
+      width: 100%;
+      position: absolute;
+    }
+  </style>
 
   <!-- Navigation -->
   <?php include "layout/topnavigation.php"; ?>
@@ -71,7 +87,7 @@ include "admin/db_connection.php";
           <div class="card mb-4">
             <!----<?php // echo $view_post_image; 
                   ?>-->
-            <iframe width="560" height="315" src="https://www.youtube.com/embed/mnLqbHMJ7_I" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+            <iframe class="video-responsive" width="560" height="315" src="https://www.youtube.com/embed/mnLqbHMJ7_I" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
             <div class="card-body">
               <h2 class="card-title"><?php echo $view_post_title; ?></h2>
               <p class="card-text">
