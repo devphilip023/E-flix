@@ -87,7 +87,7 @@ include "admin/db_connection.php";
           <div class="card mb-4">
             <!----<?php // echo $view_post_image; 
                   ?>-->
-            <iframe  width="100%" height="400" src="https://www.youtube.com/embed/mnLqbHMJ7_I" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+            <iframe width="100%" height="400" src="<?php echo $view_post_image; ?>" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
             <div class="card-body">
               <h2 class="card-title"><?php echo $view_post_title; ?></h2>
               <a href="post.php?postid=<?= $view_post_id; ?>" class="btn btn-primary">Read More &rarr;</a>
@@ -104,7 +104,7 @@ include "admin/db_connection.php";
             ?>
             <div class="card-footer text-muted">
               <img src="admin/images/users/<?php echo $view_users_image; ?>" class="zoom3" alt="User Image" width="50" align="left" hspace="5">
-              By <a href="author.php?auth=<?= $view_users_id; ?>"><?php echo $view_users_name; ?></a> 
+              By <a href="author.php?auth=<?= $view_users_id; ?>"><?php echo $view_users_name; ?></a>
               | <?php echo $view_post_date; ?>
             </div>
           </div>
