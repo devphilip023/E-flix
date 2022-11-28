@@ -84,7 +84,7 @@ include "admin/db_connection.php";
           <div class="card mb-4">
             <!----<?php // echo $view_post_image; 
                   ?>-->
-            <iframe class="video-responsive" width="560" height="315" src="https://www.youtube.com/embed/mnLqbHMJ7_I" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+            <iframe  width="100%" height="100%" src="https://www.youtube.com/embed/mnLqbHMJ7_I" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
             <div class="card-body">
               <h2 class="card-title"><?php echo $view_post_title; ?></h2>
               <p class="card-text">
