@@ -4,7 +4,7 @@
               if (isset($_POST['delete_category_id_btn'])) {
                 $delete_category_id_input = $_POST['category_id_delete'];
                 $sql_delete_category_id = "DELETE FROM  categories WHERE id ={$delete_category_id_input}";
-                $result_sql_delete_category_id = mysqli_query($dbconnection, $sql_delete_category_id);
+                $result_sql_delete_category_id = $conn->query( $sql_delete_category_id);
                 header("Location: category_admin.php");
               }
            ?>

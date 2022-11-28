@@ -4,7 +4,7 @@
               if (isset($_POST['delete_user_id_btn'])) {
                 $delete_user_id_input = $_POST['user_id_delete'];
                 $sql_delete_user_id = "DELETE FROM  users WHERE id ={$delete_user_id_input}";
-                $result_sql_delete_user_id = mysqli_query($dbconnection, $sql_delete_user_id);
+                $result_sql_delete_user_id = $conn->query($sql_delete_user_id);
                 header("Location: users_admin.php");
               }
            ?>

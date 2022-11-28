@@ -9,15 +9,15 @@ if (isset($_POST['save_category'])) {
   $add_cat_status = $_POST['cat_status'];
   $add_cat_priority = $_POST['cat_priority'];
 
-  $add_cat_title = mysqli_real_escape_string($dbconnection, $add_cat_title);
-  $add_cat_desc = mysqli_real_escape_string($dbconnection, $add_cat_desc);
-  $add_cat_slug = mysqli_real_escape_string($dbconnection, $add_cat_slug);
-  $add_cat_status = mysqli_real_escape_string($dbconnection, $add_cat_status);
+  $add_cat_title = $conn->real_escape_string($add_cat_title);
+  $add_cat_desc = $conn->real_escape_string($add_cat_desc);
+  $add_cat_slug = $conn->real_escape_string($add_cat_slug);
+  $add_cat_status = $conn->real_escape_string($add_cat_status);
 
   $sql_add_category = "INSERT INTO categories(cat_title,cat_desc, cat_slug, cat_date, cat_edit_date, cat_status, cat_priority) VALUES('$add_cat_title', '$add_cat_desc', '$add_cat_slug', '$current_date', '$current_date', '$add_cat_status', '$add_cat_priority')";
-  $result_sql_add_category = mysqli_query($dbconnection, $sql_add_category);
+  $result_sql_add_category = $conn->query( $sql_add_category);
   if (!$result_sql_add_category) {
-    die("Error description:" . mysqli_error());
+    die("Error description:" . $conn->connect_error);
   } else {
     echo "Data added successfully";
     header("Location: category_admin.php");

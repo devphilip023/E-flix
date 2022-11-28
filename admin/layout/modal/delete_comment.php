@@ -4,7 +4,7 @@
               if (isset($_POST['delete_comment_id_btn'])) {
                 $delete_comment_id_input = $_POST['comment_id_delete'];
                 $sql_delete_comment_id = "DELETE FROM  comments WHERE id ={$delete_comment_id_input}";
-                $result_sql_delete_comment_id = mysqli_query($dbconnection, $sql_delete_comment_id);
+                $result_sql_delete_comment_id = $conn->query($sql_delete_comment_id);
                 header("Location: comment_admin.php");
               }
            ?>

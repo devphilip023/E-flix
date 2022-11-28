@@ -57,7 +57,6 @@ if (isset($_POST['save_post'])) {
           <script>
             //function myFunction() {
             //alert("Hello! I am an alert box!");
-            
           </script>
           <div class="row">
             <div class="col-sm-4">
