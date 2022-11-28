@@ -91,10 +91,6 @@ if (isset($_POST['save_post'])) {
             <label for="post_imagel" class="col-form-label">Video Link:</label>
             <input type="text" class="form-control" placeholder="Enter facebook or youtube link here " required name="post_image" id="post_image">
           </div>
-          <div class="form-group">
-            <label for="post_imagel" class="col-form-label">Image:</label>
-            <input type="file" required name="post_image" id="post_image">
-          </div>
           <div class="form-group shadow-textarea">
             <label for="post_text" class="col-form-label">Text:</label>
             <textarea name="post_text" id="post_text" placeholder="Enter Post Text Here" required></textarea>
