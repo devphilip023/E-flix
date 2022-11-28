@@ -37,6 +37,10 @@
         ?>
         <!-- // Modal add new Post -->
 
+        <li class="dropdown notifications-menu">
+
+          </a>
+        </li>
         <!-- Tasks: style can be found in dropdown.less -->
         
           </ul>
@@ -54,7 +58,7 @@
 
               <p>
                 <?php echo $success_login_name_admin; ?> - Writing posts
-                <small>Since Nov. 2022</small>
+                <small>Since Nov. 2002</small>
               </p>
             </li>
             <!-- Menu Body -->
