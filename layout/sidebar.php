@@ -29,10 +29,10 @@
         <div class="form-group">
             <button type="submit" name="login" class="btn btn-success btn-block login-btn">Sign in</button>
         </div>
-        <div class="clearfix">
+       <!-- <div class="clearfix">
             <label class="pull-left checkbox-inline"><input type="checkbox"> Remember me</label>
             <a href="#" class="pull-right text-success">Forgot Password?</a>
-        </div>  
+        </div>  -->
         
     </form>
     <div class="hint-text small">Don't have an account? <a href="#" class="text-success">Register Now!</a></div>
