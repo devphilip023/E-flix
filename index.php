@@ -91,8 +91,6 @@ include "admin/db_connection.php";
             <div class="card-body">
               <h2 class="card-title"><?php echo $view_post_title; ?></h2>
               <p class="card-text">
-                <?php //echo $view_post_text; 
-                echo substr($view_post_text, 0, 400) . "..."; ?>
               </p>
               <a href="post.php?postid=<?= $view_post_id; ?>" class="btn btn-primary">Read More &rarr;</a>
             </div>
