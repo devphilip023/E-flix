@@ -36,13 +36,6 @@
         <?php //include "layout/modal/add_new_post.php"; 
         ?>
         <!-- // Modal add new Post -->
-
-        <li class="dropdown notifications-menu">
-          <a href="#" class="dropdown-toggle" data-toggle="dropdown">
-            <i class="fa fa-bell-o"></i>
-            <span class="label label-warning">10</span>
-          </a>
-        </li>
         
         <!-- Control Sidebar Toggle Button -->
         <li>
