@@ -3,7 +3,7 @@ $current_date = date('d/m/Y');
 if (isset($_POST['save_post'])) {
   $add_post_category = $_POST['category_id']; //category_id    -select name
   $add_post_title = $_POST['post_title'];
-  $add_post_title = mysqli_real_escape_string($dbconnection, $add_post_title);
+  $add_post_title = $conn->real_escape_string($add_post_title);
   $add_post_autor = $_POST['post_autor'];
   $add_post_date = $_POST['post_date'];
   $add_post_edit_date = $current_date;
@@ -27,9 +27,9 @@ if (isset($_POST['save_post'])) {
 
 
   $sql_add_post = "INSERT INTO posts(post_category,post_title,post_autor,post_date,post_edit_date,post_image,post_text,post_tag,post_visit_counter,post_status,post_priority) VALUES('$add_post_category', '$add_post_title', '$add_post_autor', '$current_date', '$current_date', '$add_post_image', '$add_post_text' , '$add_post_tag','$add_post_visit_counter','$add_post_status', '$add_post_priority')";
-  $result_sql_add_post = mysqli_query($dbconnection, $sql_add_post);
+  $result_sql_add_post = $conn->query($sql_add_post);
   if (!$sql_add_post) {
-    die("Error description:" . mysqli_error());
+    die("Error description:" . $conn->connect_error);
   } else {
     echo "Data added successfully";
     header("Location: post_admin.php");
@@ -65,8 +65,9 @@ if (isset($_POST['save_post'])) {
               <select class="form-control" name="category_id" id="category_id">
                 <?php
                 $sql_select_category = "SELECT * FROM categories ORDER BY id DESC";
-                $result_sql_select_category = mysqli_query($dbconnection, $sql_select_category);
-                while ($rowcategory = mysqli_fetch_assoc($result_sql_select_category)) {
+
+                $result_sql_select_category = $conn->query($sql_select_category);
+                while ($rowcategory = $result_sql_select_category->fetch_assoc()) {
                   $view_category_id = $rowcategory['id'];
                   $view_cat_title = $rowcategory['cat_title'];
                   $view_cat_desc = $rowcategory['cat_desc'];
